@@ -22,3 +22,10 @@ background-size: cover;
     color:crimson;
     text-align: center;
 }
+#myModel_div div{
+    margin-left: 1px;
+}
+#myModel{
+    margin-top:50px;
+    width:100%;
+}
