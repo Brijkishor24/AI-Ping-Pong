@@ -14,7 +14,6 @@ background-size: cover;
     display:inline;
 }
 .copy_right_footer{
-    position: fixed;
     bottom:0;
     width: 100%;
     background-color: aliceblue;

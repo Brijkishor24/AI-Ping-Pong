@@ -1,7 +1,7 @@
 
 /*created by prashant shukla */
 
-/*var paddle2 =10,paddle1=10;
+var paddle2 =10,paddle1=10;
 
 var paddle1X = 10,paddle1Height = 110;
 var paddle2Y = 685,paddle2Height = 70;
@@ -23,6 +23,16 @@ var ball = {
 
 function setup(){
   var canvas =  createCanvas(700,600);
+  canvas.parent("#canvas");
+  video=createCapture(VIDEO);
+  video.parent(canvas);
+  video.hide();
+ video.size(700,600);
+
+  poseNet=ml5.poseNet(video,modelloaded);
+  poseNet.on('pose',getResult);
+}function modelloaded(){
+  console.log("PoseNet Initialized");
 }
 
 
@@ -30,13 +40,13 @@ function draw(){
 
  background(0); 
 
- fill("black");
+ /*fill("black");
  stroke("black");
  rect(680,0,20,700);
 
  fill("black");
  stroke("black");
- rect(0,0,20,700);
+ rect(0,0,20,700);*/
  
    //funtion paddleInCanvas call 
    paddleInCanvas();
@@ -161,4 +171,4 @@ function paddleInCanvas(){
   if(mouseY < 0){
     mouseY =0;
   }  
-}*/
+}
