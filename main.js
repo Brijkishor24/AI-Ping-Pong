@@ -33,8 +33,8 @@ function setup(){
  video.size(700,600);
 
   poseNet=ml5.poseNet(video,modelloaded);
-  //poseNet.on('pose',getPoses);
-  //poseNet.on('pose'.getResult);
+  poseNet.on('pose',getPoses);
+  poseNet.on('pose'.getResult);
 }function modelloaded(){
   console.log("PoseNet Initialized");
 }function getPoses(results){
