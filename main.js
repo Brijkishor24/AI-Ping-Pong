@@ -1,4 +1,7 @@
 
+rightWristX="";
+rightWristY="";
+rightWristscore="";
 /*created by prashant shukla */
 
 var paddle2 =10,paddle1=10;
@@ -30,23 +33,39 @@ function setup(){
  video.size(700,600);
 
   poseNet=ml5.poseNet(video,modelloaded);
-  poseNet.on('pose',getResult);
+  //poseNet.on('pose',getPoses);
+  //poseNet.on('pose'.getResult);
 }function modelloaded(){
   console.log("PoseNet Initialized");
+}function getPoses(results){
+console.log(results);
+}function getResult(results){
+ if(results.length>0){
+  rightWristX=results[0].pose.rightWrist.x;
+  rightWristY=results[0].pose.rightWrist.y;
+  rightWristscore=results[0].keypoints[19].score;
+ }
 }
+
 
 
 function draw(){
 
  background(0); 
 
- /*fill("black");
+ fill("black");
  stroke("black");
  rect(680,0,20,700);
 
  fill("black");
  stroke("black");
- rect(0,0,20,700);*/
+ rect(0,0,20,700);
+
+if(rightWristscore>0.2){
+  fill("golden");
+  stroke("golden");
+  circle(rightWristX,rightWristY,30);
+}
  
    //funtion paddleInCanvas call 
    paddleInCanvas();
