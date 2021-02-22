@@ -43,7 +43,7 @@ console.log(results);
  if(results.length>0){
   rightWristX=results[0].pose.rightWrist.x;
   rightWristY=results[0].pose.rightWrist.y;
-  rightWristscore=results[0].keypoints[19].score;
+  rightWristscore=results[0].keypoints[10].score;
  }
 }
 
