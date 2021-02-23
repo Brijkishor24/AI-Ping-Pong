@@ -1,4 +1,4 @@
-
+GameStatus="";
 rightWristX="";
 rightWristY="";
 rightWristscore="";
@@ -24,17 +24,18 @@ var ball = {
     dy:3
 }
 
+
+
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.parent("#canvas");
   video=createCapture(VIDEO);
   video.parent(canvas);
-  video.hide();
  video.size(700,600);
 
   poseNet=ml5.poseNet(video,modelloaded);
-  poseNet.on('pose',getPoses);
-  poseNet.on('pose'.getResult);
+  //poseNet.on('pose',getPoses);
+  //poseNet.on('pose',getResult);
 }function modelloaded(){
   console.log("PoseNet Initialized");
 }function getPoses(results){
@@ -43,14 +44,17 @@ console.log(results);
  if(results.length>0){
   rightWristX=results[0].pose.rightWrist.x;
   rightWristY=results[0].pose.rightWrist.y;
-  rightWristscore=results[0].keypoints[10].score;
+  rightWristscore=results[0].pose.keypoints[10].score;
  }
 }
 
-
+function start(){
+  GameStatus="start";
+  document.getElementById("status").innerHTML="Game Is Loaded";
+}
 
 function draw(){
-
+if(GameStatus=="start"){
  background(0); 
 
  fill("black");
@@ -94,6 +98,7 @@ if(rightWristscore>0.2){
    
    //function move call which in very important
     move();
+}
 }
 
 
