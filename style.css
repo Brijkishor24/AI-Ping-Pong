@@ -22,7 +22,7 @@ background-size: cover;
     text-align: center;
 }
 #myModel_div div{
-    margin-left: 1px;
+    float:none;
 }
 #myModel{
     margin-top:50px;
